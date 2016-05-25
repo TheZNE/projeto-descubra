@@ -1,19 +1,14 @@
 module.exports = function(grunt){
     grunt.config('sass', {
-        dist: {
+        all: {
             options: {
-                style: 'compressed',
+                style: 'expanded'
             },
             files: {
-                'assets/css/main.css': 'assets/sass/main.sass'
-            }
-        },
-        dev: {
-            options: {
-                style: 'expanded',
-            },
-            files: {
-                '_site/assets/css/main.css': 'assets/sass/main.sass'
+                'assets/css/main.css': 'assets/sass/main.sass',
+                'assets/css/materialize.css': 'assets/js/vendor/Materialize/sass/materialize.scss',
+                'assets/css/hack.css': 'assets/js/vendor/hack/scss/hack.scss',
+                'assets/css/font-awesome.css': 'assets/js/vendor/font-awesome/scss/font-awesome.scss'
             }
         }
     });
