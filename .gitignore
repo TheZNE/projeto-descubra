@@ -1,6 +1,6 @@
 web/.sass-cache/
 web/node_modules/
-web/assets/js/vendor/
+web/assets/vendor/
 web/assets/css/
 web/assets/fonts/
-web/assets/js/
+web/site/
