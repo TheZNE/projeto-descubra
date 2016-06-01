@@ -1,171 +1,94 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt_BR" ng-app="descubra">
     <head>
-        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link type="text/css" rel="stylesheet" href="assets/css/materialize.css"  media="screen,projection"/>
-        <link type="text/css" rel="stylesheet" href="assets/css/font-awesome.css">
-        <link type="text/css" rel="stylesheet" href="assets/css/hack.css">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="application-name" content="Projeto Descubra"/>
+        <meta name="description" content="Descubra cidades, visite, conheça, Instagram."/>
+        <meta name="subject" content="Cidades e que elas tem a oferecer."/>
+        <meta name="robots" content="index"/>
+        <meta name="googlebot" content="index"/>
+        <meta name="google" content="nositelinkssearchbox"/>
+        <meta name="coverage" content="Worldwide"/>
+        <meta name="rating" content="General"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+        <meta name="apple-mobile-web-app-title" content="Descubra Brasília"/>
+        <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+        <meta http-equiv="cleartype" content="on"/>
+        <meta name="skype_toolbar" content="skype_toolbar_parser_compatible"/>
+        <meta name="msapplication-tap-highlight" content="no"/>
+
+        <link rel="manifest" href="manifest.json"/>
+        <link rel="author" href="humans.txt"/>
+        <link rel="copyright" href="copyright.html"/>
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="css/font-awesome.css"/>
+        <link type="text/css" rel="stylesheet" href="css/abel.css"/>
+
+        <link rel="icon" href="images/icons/favicon-16.png" sizes="16x16" type="image/png"/>
+        <link rel="icon" href="images/icons/favicon-32.png" sizes="32x32" type="image/png"/>
+        <link rel="icon" href="images/icons/favicon-48.png" sizes="48x48" type="image/png"/>
+        <link rel="icon" href="images/icons/favicon-62.png" sizes="62x62" type="image/png"/>
+        <link rel="icon" href="images/icons/favicon-192.png" sizes="192x192" type="image/png"/>
+
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/materialize.js"></script>
+        <script type="text/javascript" src="js/angular.js"></script>
+        <script type="text/javascript" src="js/mongoose.js"></script>
+        <script type="text/javascript" src="js/controller/PostController.js"></script>
     </head>
 
     <body>
-        <script type="text/javascript" src="assets/js/vendor/jquery/dist/jquery.min.js"></script>
-        <script type="text/javascript" src="assets/js/vendor/Materialize/dist/js/materialize.min.js"></script>
-
         <div class="navbar-fixed">
             <nav>
                 <div class="nav-wrapper">
-                    <a href="#" class="brand-logo center">#descubraBrasilia</a>
+                    <a href="#" class="brand-logo center">Descubra Brasilia</a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a href="sass.html">Home</a></li>
                         <li><a href="collapsible.html">Sobre</a></li>
                     </ul>
                 </div>
             </nav>
         </div>
 
-        <div class="container">
+        <div class="container" ng-controller="PostController as control">
+
             <div class="row">
-                <div class="col s6 m4 l4">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="assets/img/sample-1.jpg">
-                            <span class="card-title">Card Title</span>
-                        </div>
-                        <div class="card-action">
-                            <a href="#">This is a link</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s6 m4 l4">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="assets/img/sample-1.jpg">
-                            <span class="card-title">Card Title</span>
-                        </div>
-                        <div class="card-action">
-                            <a href="#">This is a link</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s6 m4 l4">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="assets/img/sample-1.jpg">
-                            <span class="card-title">Card Title</span>
-                        </div>
-                        <div class="card-action">
-                            <a href="#">This is a link</a>
+                <div ng-repeat="post in control.posts ">
+                    <div class="col s6 m4 l4">
+                        <div class="card hoverable">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" src={{post.url}}>
+                            </div>
+                            <div class="card-content">
+                                <p ng-show="post.location">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i> {{post.location}}
+                                </p>
+                                <p ng-show="post.username">
+                                <i class="fa fa-user" aria-hidden="true"></i> {{post.username}}
+                                </p>
+                                <p ng-show="post.created_time_date">
+                                <i class="fa fa-calendar" aria-hidden="true"></i> {{post.created_time_date}}
+                                </p>
+                            </div>
+                            <div class="card-reveal">
+                                <span class="card-title">{{post.location}}<i class="material-icons right">close</i></span>
+                                <p>{{post.created_time_date}}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col s6 m4 l4">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="assets/img/sample-1.jpg">
-                            <span class="card-title">Card Title</span>
-                        </div>
-                        <div class="card-action">
-                            <a href="#">This is a link</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s6 m4 l4">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="assets/img/sample-1.jpg">
-                            <span class="card-title">Card Title</span>
-                        </div>
-                        <div class="card-action">
-                            <a href="#">This is a link</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s6 m4 l4">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="assets/img/sample-1.jpg">
-                            <span class="card-title">Card Title</span>
-                        </div>
-                        <div class="card-action">
-                            <a href="#">This is a link</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s6 m4 l4">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="assets/img/sample-1.jpg">
-                            <span class="card-title">Card Title</span>
-                        </div>
-                        <div class="card-action">
-                            <a href="#">This is a link</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s6 m4 l4">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="assets/img/sample-1.jpg">
-                            <span class="card-title">Card Title</span>
-                        </div>
-                        <div class="card-action">
-                            <a href="#">This is a link</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s6 m4 l4">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="assets/img/sample-1.jpg">
-                            <span class="card-title">Card Title</span>
-                        </div>
-                        <div class="card-action">
-                            <a href="#">This is a link</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s6 m4 l4">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="assets/img/sample-1.jpg">
-                            <span class="card-title">Card Title</span>
-                        </div>
-                        <div class="card-action">
-                            <a href="#">This is a link</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s6 m4 l4">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="assets/img/sample-1.jpg">
-                            <span class="card-title">Card Title</span>
-                        </div>
-                        <div class="card-action">
-                            <a href="#">This is a link</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s6 m4 l4">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="assets/img/sample-1.jpg">
-                            <span class="card-title">Card Title</span>
-                        </div>
-                        <div class="card-action">
-                            <a href="#">This is a link</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="row center-align">
+                    <ul class="pagination">
+                        <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                        <li class="active"><a href="#!">1</a></li>
+                        <li class="waves-effect"><a href="#!">2</a></li>
+                        <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+                    </ul>
             </div>
         </div>
 
@@ -173,7 +96,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col s12 m9 l9">
-                        <h5 class="white-text">#descubraBrasilia</h5>
+                        <h5 class="white-text">Descubra Brasília</h5>
                     </div>
                     <div class="col s4 m1 l1">
                         <i class="fa fa-instagram medium white-text"></i>
@@ -188,7 +111,7 @@
             </div>
             <div class="footer-copyright">
                 <div class="container">
-                    2016 Copyright Text
+                    &#169; 2016 Copyright Text
                     <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
                 </div>
             </div>

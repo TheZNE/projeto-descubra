@@ -5,10 +5,10 @@ module.exports = function(grunt){
                 style: 'expanded'
             },
             files: {
-                'assets/css/main.css': 'assets/sass/main.sass',
-                'assets/css/materialize.css': 'assets/js/vendor/Materialize/sass/materialize.scss',
-                'assets/css/hack.css': 'assets/js/vendor/hack/scss/hack.scss',
-                'assets/css/font-awesome.css': 'assets/js/vendor/font-awesome/scss/font-awesome.scss'
+                'site/css/main.css': 'assets/sass/main.sass',
+                'site/css/materialize.css': 'assets/vendor/Materialize/sass/materialize.scss',
+                'site/css/abel.css': 'assets/vendor/font-abel/scss/abel.scss',
+                'site/css/font-awesome.css': 'assets/vendor/font-awesome/scss/font-awesome.scss'
             }
         }
     });

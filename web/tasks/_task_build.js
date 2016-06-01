@@ -3,6 +3,5 @@ module.exports = function(grunt){
             'copy',
             'sass',
             'uglify'
-        
     ]);
 };
