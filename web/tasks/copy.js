@@ -1,4 +1,5 @@
 /** Copiar recursos necessários para o projeto (geralmente: fontes, imagens, páginas) */
+
 module.exports = function(grunt){
     grunt.config('copy', {
         all: {
@@ -14,21 +15,21 @@ module.exports = function(grunt){
                     expand: true,
                     cwd: 'assets/vendor/font-abel/font/',
                     src: '**',
-                    dest: 'site/fonts/',
+                    dest: 'site/font/',
                     filter: 'isFile'
                 },
                 {
                     expand: true,
                     cwd: 'assets/vendor/Materialize/dist/font/material-design-icons/',
                     src: '**',
-                    dest: 'site/fonts/material-design-icons/',
+                    dest: 'site/font/material-design-icons/',
                     filter: 'isFile'
                 },
                 {
                     expand: true,
                     cwd: 'assets/vendor/Materialize/dist/font/roboto/',
                     src: '**',
-                    dest: 'site/fonts/roboto/',
+                    dest: 'site/font/roboto/',
                     filter: 'isFile'
                 },
                 {
